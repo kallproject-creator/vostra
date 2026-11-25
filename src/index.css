@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #090e1a;
+  color: #f1f5f9;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Expressive Character Dialogue Animations */
+@keyframes char-breath {
+  0%, 100% { transform: translateY(0px) scaleY(1); }
+  50% { transform: translateY(-3px) scaleY(1.012); }
+}
+
+@keyframes char-talk-nod {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-1.2deg); }
+  60% { transform: translateY(1px) rotate(0.8deg); }
+}
+
+@keyframes char-determined-lunge {
+  0% { transform: translateX(0px) scale(1); }
+  40% { transform: translateX(10px) translateY(-5px) scale(1.04) skewX(-2deg); }
+  100% { transform: translateX(4px) translateY(-2px) scale(1.02); }
+}
+
+@keyframes char-shocked-recoil {
+  0% { transform: translateX(0px) scale(1); }
+  20% { transform: translateX(-14px) translateY(-8px) scale(1.06) rotate(-4deg); }
+  45% { transform: translateX(-6px) translateY(2px) scale(0.97) rotate(2deg); }
+  75% { transform: translateX(-10px) translateY(-3px) rotate(-2deg); }
+  100% { transform: translateX(-4px) scale(1); }
+}
+
+@keyframes char-angry-tremble {
+  0%, 100% { transform: translate(0px, 0px) scale(1.03); }
+  20% { transform: translate(-2px, -3px) scale(1.04) rotate(-1deg); }
+  40% { transform: translate(2px, 1px) scale(1.04) rotate(1deg); }
+  60% { transform: translate(-2px, 2px) scale(1.03) rotate(-0.8deg); }
+  80% { transform: translate(2px, -2px) scale(1.04) rotate(0.8deg); }
+}
+
+@keyframes char-charging-flare {
+  0%, 100% { transform: translateY(2px) scale(1.02, 0.97); filter: brightness(1.08); }
+  50% { transform: translateY(-9px) scale(1.05, 1.04); filter: brightness(1.25); }
+}
+
+@keyframes char-laugh-bounce {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  25% { transform: translateY(-7px) rotate(2.5deg); }
+  50% { transform: translateY(1px) rotate(-2deg); }
+  75% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes char-injured-sway {
+  0%, 100% { transform: translateX(-3px) translateY(5px) rotate(-3deg); }
+  50% { transform: translateX(2px) translateY(8px) rotate(-5deg); }
+}
+
+@keyframes char-whisper-lean {
+  0%, 100% { transform: translateX(6px) translateY(2px) scale(0.99) rotate(1.5deg); }
+  50% { transform: translateX(9px) translateY(0px) scale(1) rotate(2deg); }
+}
+
+@keyframes char-awakened-ascend {
+  0%, 100% { transform: translateY(-4px) scale(1.05); filter: drop-shadow(0 0 18px rgba(250, 204, 21, 0.55)); }
+  50% { transform: translateY(-12px) scale(1.08); filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.75)); }
+}
+
+@keyframes cutscene-slash {
+  0% { transform: scaleX(0) rotate(-12deg); opacity: 0; }
+  30% { transform: scaleX(1.15) rotate(-12deg); opacity: 1; }
+  100% { transform: scaleX(1.3) rotate(-12deg); opacity: 0; }
+}
+
+@keyframes speed-beam {
+  0% { transform: translateX(-100%); opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0.2; }
+}
+
+.anim-char-neutral { animation: char-breath 3.4s ease-in-out infinite; }
+.anim-char-talking { animation: char-talk-nod 0.42s ease-in-out infinite; }
+.anim-char-confident { animation: char-talk-nod 1.8s ease-in-out infinite; }
+.anim-char-determined { animation: char-determined-lunge 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-char-shocked { animation: char-shocked-recoil 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-char-angry { animation: char-angry-tremble 0.38s ease-in-out infinite; }
+.anim-char-charging { animation: char-charging-flare 0.9s ease-in-out infinite; }
+.anim-char-laughing { animation: char-laugh-bounce 0.55s ease-in-out infinite; }
+.anim-char-injured { animation: char-injured-sway 2.2s ease-in-out infinite; }
+.anim-char-whisper { animation: char-whisper-lean 2.4s ease-in-out infinite; }
+.anim-char-awakened { animation: char-awakened-ascend 1.3s ease-in-out infinite; }
+
+/* Live Court Player Motion Keyframes */
+@keyframes court-idle-bounce {
+  0%, 100% { transform: translateY(0px) scaleY(1); }
+  50% { transform: translateY(2.5px) scaleY(0.975); }
+}
+@keyframes court-run-stride-a {
+  0%, 100% { transform: rotate(-24deg); }
+  50% { transform: rotate(26deg); }
+}
+@keyframes court-run-stride-b {
+  0%, 100% { transform: rotate(26deg); }
+  50% { transform: rotate(-24deg); }
+}
+
+.court-anim-idle { animation: court-idle-bounce 1.2s ease-in-out infinite; }
+.court-run-a { animation: court-run-stride-a 0.34s ease-in-out infinite; }
+.court-run-b { animation: court-run-stride-b 0.34s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-char-neutral,
+  .anim-char-talking,
+  .anim-char-confident,
+  .anim-char-determined,
+  .anim-char-shocked,
+  .anim-char-angry,
+  .anim-char-charging,
+  .anim-char-laughing,
+  .anim-char-injured,
+  .anim-char-whisper,
+  .anim-char-awakened,
+  .court-anim-idle,
+  .court-run-a,
+  .court-run-b {
+    animation: none !important;
+  }
+}
+
+/* Clean custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

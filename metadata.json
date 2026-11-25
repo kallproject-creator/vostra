@@ -1,0 +1,6 @@
+{
+  "name": "Skyward Spike: Legenda Voli",
+  "description": "Game voli 3v3 bergaya anime dengan 10 chapter cerita epik, cutscene ultimate unik per karakter, sistem gacha rank D hingga S+, dan progres tersimpan otomatis di perangkat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
